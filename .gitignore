@@ -1,10 +1,24 @@
-# Python-generated files
-__pycache__/
-*.py[oc]
-build/
-dist/
-wheels/
-*.egg-info
-
 # Virtual environments
-.venv
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# Data (too large / regenerable from the scrapers; a small sample is committed instead)
+data/raw/
+data/processed/
+*.csv
+!data/sample/*.csv
+
+# Notebook outputs clutter
+notebooks/.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
