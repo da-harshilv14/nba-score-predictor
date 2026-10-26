@@ -74,6 +74,15 @@ python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+`requirements.txt` is the lightweight core (app, demo notebook, and the modelling
+pipeline). For the exact full environment — the optional neural network
+(TensorFlow) and the scrapers (Selenium) — install the complete pinned set
+instead:
+
+```bash
+pip install -r requirements_full.txt
+```
+
 ## Usage
 
 ### Run the demo
@@ -84,6 +93,30 @@ jupyter lab notebooks/nba_prediction_demo.ipynb
 
 It runs top to bottom on the committed sample (or the full dataset if present)
 and shows the backtest, a confusion matrix, and sample predictions.
+
+### Run the web app
+
+An interactive [Streamlit](https://streamlit.io/) app — pick two teams and get a
+predicted winner with a win probability, plus each team's Elo and recent form:
+
+```bash
+streamlit run app/streamlit_app.py
+```
+
+Then open the Local URL it prints (e.g. `http://localhost:8501`). To run the app
+locally from a clean clone:
+
+```bash
+git clone https://github.com/da-harshilv14/nba-score-predictor.git
+cd nba-score-predictor
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+streamlit run app/streamlit_app.py
+```
+
+A hosted demo (Streamlit Community Cloud) runs on the bundled 2-season sample
+data; for full-data predictions, run it locally with `data/processed/games.csv`
+in place.
 
 ### Use the library
 
